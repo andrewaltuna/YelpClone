@@ -15,3 +15,15 @@ interface YelpService {
     ): Call<YelpSearchResult>
 
 }
+
+interface YelpServiceNearbyRestaurants {
+
+    @GET("businesses/search")
+    fun searchRestaurants(
+        @Header("Authorization") authHeader: String,
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+        @Query("radius") radius: Int
+    ): Call<YelpSearchResult>
+
+}

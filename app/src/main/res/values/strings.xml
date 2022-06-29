@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Yelp Clone</string>
+    <string name="title_activity_restaurants_map">RestaurantsMapActivity</string>
 </resources>
