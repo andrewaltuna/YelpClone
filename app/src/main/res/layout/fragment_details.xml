@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12sp">
+
+        <TextView
+            android:id="@+id/tvDetailLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailNumReviews"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailNumReviews"
+            tools:text="297 Bonny Serrano Ave." />
+
+        <RatingBar
+            android:id="@+id/tvDetailRatingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:numStars="5"
+            android:progressTint="@color/yelpPrimary"
+            android:stepSize="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailName"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailName" />
+
+        <TextView
+            android:id="@+id/tvDetailNumReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailRatingBar"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailRatingBar"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailRatingBar"
+            tools:text="123 Reviews" />
+
+        <TextView
+            android:id="@+id/tvDetailPriceCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailRatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailNumReviews"
+            tools:text="$$ • Fast Food" />
+
+        <TextView
+            android:id="@+id/tvDetailTransactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailPriceCategory"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailPriceCategory"
+            tools:text="Pickup, Delivery" />
+
+        <TextView
+            android:id="@+id/tvDetailContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailLocation"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailLocation"
+            tools:text="(+63) 9175216828" />
+
+        <TextView
+            android:id="@+id/tvDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="McDonald's" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailTransactions"
+            tools:layout_editor_absoluteX="1dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -4,7 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/activity_main.xml" value="0.2657407407407407" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/activity_restaurant_detail.xml" value="0.25925925925925924" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/activity_restaurants_map.xml" value="0.1" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/fragment_details.xml" value="0.33" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/fragment_restaurant_detail.xml" value="0.25925925925925924" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/fragment_reviews.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/item_restaurant.xml" value="0.5" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/item_restaurant_image.xml" value="0.15830800405268491" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/item_restaurant_review.xml" value="0.15881458966565348" />
+        <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/layout/item_review.xml" value="0.33" />
         <entry key="..\:/Users/Andrew/Documents/AndroidStudioProjects/YelpClone/app/src/main/res/menu/menu_restaurants_map.xml" value="0.25925925925925924" />
       </map>
     </option>

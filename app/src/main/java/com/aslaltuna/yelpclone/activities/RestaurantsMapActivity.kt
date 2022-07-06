@@ -1,9 +1,9 @@
-package com.aslaltuna.yelpclone
+package com.aslaltuna.yelpclone.activities
 
-import android.location.Location.distanceBetween
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
+import com.aslaltuna.yelpclone.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -12,12 +12,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.aslaltuna.yelpclone.databinding.ActivityRestaurantsMapBinding
+import com.aslaltuna.yelpclone.models.ListPlaces
 import com.google.android.gms.maps.model.LatLngBounds
-import com.google.maps.android.SphericalUtil
-import java.io.Serializable
-
-data class ListPlaces(val places: List<Place>) : Serializable
-data class Place(val title: String, val category: String, val latitude: Double, val longitude: Double, val rating: Double, val distance: String) : Serializable
 
 class RestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -25,7 +21,6 @@ class RestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityRestaurantsMapBinding
     private lateinit var listPlaces: ListPlaces
 
-//    val currentLocation = intent.getParcelableExtra<LatLng>(CURRENT_LOCATION)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,14 +28,13 @@ class RestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(binding.root)
 
         listPlaces = intent.getSerializableExtra(EXTRA_PLACES_NEARBY) as ListPlaces
-        val currentLocation = intent.getParcelableExtra<LatLng>(CURRENT_LOCATION)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        supportActionBar?.setTitle("Restaurants Near Me")
+        supportActionBar?.title = "Restaurants Near Me"
     }
 
     /**
@@ -55,25 +49,23 @@ class RestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.setOnInfoWindowClickListener {
+            val restaurantId = it.tag.toString()
 
-        val currentLocation = intent.getParcelableExtra<LatLng>(CURRENT_LOCATION)
+            val intent = Intent(this@RestaurantsMapActivity, RestaurantDetailActivity::class.java)
+            intent.putExtra(RESTAURANT_DETAIL, restaurantId)
+            startActivity(intent)
+        }
 
         val boundsBuilder = LatLngBounds.Builder()
         for (place in listPlaces.places) {
             val latLng = LatLng(place.latitude, place.longitude)
 
             boundsBuilder.include(latLng)
-            mMap.addMarker(MarkerOptions().position(latLng).title(place.title).snippet("${place.category}, ${place.distance} | ${place.rating}⭐"))
+            mMap.addMarker(MarkerOptions().position(latLng).title(place.title).snippet("${place.category}, ${place.distance} | ${place.rating}⭐"))?.tag = place.id
         }
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 0))
-
-
-
     }
 
 

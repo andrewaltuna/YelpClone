@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12sp">
+
+    <ImageView
+        android:id="@+id/ivReviewUser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvReviewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivReviewUser"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Alizja P. Astudillo" />
+
+    <RatingBar
+        android:id="@+id/ratingBarReview"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:numStars="5"
+        android:progressTint="@color/yelpPrimary"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tvReviewName"
+        app:layout_constraintTop_toBottomOf="@+id/tvReviewName" />
+
+    <TextView
+        android:id="@+id/tvReviewDateCreated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Jan 2, 2022" />
+
+    <TextView
+        android:id="@+id/tvReviewText"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvReviewName"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarReview"
+        tools:text="Lorem ipsum." />
+</androidx.constraintlayout.widget.ConstraintLayout>
